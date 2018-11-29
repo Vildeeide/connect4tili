@@ -56,7 +56,6 @@ class game:
         #player2_boxes = None
 
 
-
     def main(self):
 
         #game loop
@@ -79,7 +78,31 @@ class game:
                 pass
 
     def changeBoardState(self,row,collumn,player):
-        boardArray[row,collumn] = player
+        boardArray[row,column] = player
+
+    def check4win(row, column):
+        directions = [(-1,-1),(-1,0),(-1,1)(0,-1),(0,1),(1,-1),(1,0),(1,1)]
+        for i in directions:
+            movey = row
+            movex = column
+            count = 1
+            while True:
+                movey += i[0]
+                movex += i[1]
+                if movey<0 or movey>boardheight or movex<0 or movex>boardwidth:
+                    continue
+                if boardArray[movey,movex] == boardArray[row,collumn]:
+                    count +=1
+                    if count == 4:
+                        break
+                        won = True
+                else:
+                    break
+            if won == True:
+                break
+
+
+
 
 
 
