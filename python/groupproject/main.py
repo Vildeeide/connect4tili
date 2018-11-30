@@ -2,7 +2,7 @@ import pygame,sys
 from pygame.locals import *
 import numpy as np
 
-
+#hallo welt
 fps = 30
 windowwidth = 640
 windowheight= 480
