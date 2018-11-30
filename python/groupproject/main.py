@@ -83,19 +83,25 @@ class game:
     def check4win(row, column):
         directions = [(-1,-1),(-1,0),(-1,1)(0,-1),(0,1),(1,-1),(1,0),(1,1)]
         for i in directions:
+            #reset our moves to the original coordinates
             movey = row
             movex = column
             count = 1
             while True:
+                #moving through the board in the direction i
                 movey += i[0]
                 movex += i[1]
-                if movey<0 or movey>boardheight or movex<0 or movex>boardwidth:
+                #check that our algorithm does not move out of  the playing field
+                if movey < 0 or movey > boardheight or movex < 0 or movex > boardwidth:
                     continue
+                #check if the tile we moved to contains a stone of the player
                 if boardArray[movey,movex] == boardArray[row,collumn]:
                     count +=1
+                    #check if we encounterd 4 stones already
                     if count == 4:
                         break
                         won = True
+                #if there is no stone or not the right stone skip this direction
                 else:
                     break
             if won == True:
